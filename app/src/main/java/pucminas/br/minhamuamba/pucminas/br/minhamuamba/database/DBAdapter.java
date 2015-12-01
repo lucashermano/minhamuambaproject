@@ -37,7 +37,7 @@ public class DBAdapter {
     public static final String MANGAS_KEY_VOLUME = "volume";
     public static final String MANGAS_KEY_ID_MUAMBA = "id_muamba";
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     private static final String DATABASE_CREATE =
             "create table muamba (_identificador integer primary key autoincrement, nome text not null, valorpago real, valoratual real);"+
@@ -67,7 +67,10 @@ public class DBAdapter {
         public void onCreate(SQLiteDatabase db)
         {
             try {
-                db.execSQL(DATABASE_CREATE);
+                String[] queries = DATABASE_CREATE.split(";");
+                for(String query : queries){
+                    db.execSQL(query);
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -78,7 +81,10 @@ public class DBAdapter {
         {
             Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS contacts");
+            db.execSQL("DROP TABLE IF EXISTS " + GAMES_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS "+ACTION_FIGURES_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS "+MANGAS_TABLE);
+            db.execSQL("DROP TABLE IF EXISTS "+MUAMBA_TABLE);
             onCreate(db);
         }
     }
