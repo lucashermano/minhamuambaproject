@@ -142,4 +142,148 @@ public class DBAdapter {
         args.put(MUAMBA_KEY_VALORATUAL, valorAtual);
         return db.update(MUAMBA_TABLE, args, MUAMBA_KEY_ROWID + "=" + rowId, null) > 0;
     }
+
+
+    //---inserindo games no banco de dados---
+    public long insertGames(Integer console, Long idMuamba)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(GAMES_KEY_CONSOLE, console);
+        initialValues.put(GAMES_KEY_ID_MUAMBA, idMuamba);
+
+        return db.insert(GAMES_TABLE, null, initialValues);
+    }
+
+    //---deletando uma games---
+    public boolean deleteGames(long rowId)
+    {
+        return db.delete(GAMES_TABLE, GAMES_KEY_ROWID + "=" + rowId, null) > 0;
+    }
+
+    //---recuperando todas as games---
+    public Cursor getAllGames()
+    {
+        return db.query(GAMES_TABLE, new String[] {GAMES_KEY_ROWID, GAMES_KEY_CONSOLE,
+                GAMES_KEY_ID_MUAMBA}, null, null, null, null, null);
+    }
+
+    //---obtendo uma game especifico---
+    public Cursor getGames(long rowId) throws SQLException
+    {
+        Cursor mCursor =
+                db.query(true, GAMES_TABLE, new String[] {GAMES_KEY_ROWID, GAMES_KEY_CONSOLE,
+                                GAMES_KEY_ID_MUAMBA}, GAMES_KEY_ROWID + "=" + rowId, null,
+                        null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    //---alterando um game---
+    public boolean updateGames(long rowId, Integer console, Long idMuamba)
+    {
+        ContentValues args = new ContentValues();
+        args.put(GAMES_KEY_CONSOLE, console);
+        args.put(GAMES_KEY_ID_MUAMBA, idMuamba);
+        return db.update(GAMES_TABLE, args, GAMES_KEY_ROWID + "=" + rowId, null) > 0;
+    }
+
+
+    //---inserindo mangas no banco de dados---
+    public long insertMangas(Integer volume, Long idMuamba)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(MANGAS_KEY_VOLUME, volume);
+        initialValues.put(MANGAS_KEY_ID_MUAMBA, idMuamba);
+
+        return db.insert(MANGAS_TABLE, null, initialValues);
+    }
+
+    //---deletando um manga---
+    public boolean deleteMangas(long rowId)
+    {
+        return db.delete(MANGAS_TABLE, MANGAS_KEY_ROWID + "=" + rowId, null) > 0;
+    }
+
+    //---recuperando todas os mangas---
+    public Cursor getAllMangas()
+    {
+        return db.query(MANGAS_TABLE, new String[] {MANGAS_KEY_ROWID, MANGAS_KEY_VOLUME,
+                MANGAS_KEY_ID_MUAMBA}, null, null, null, null, null);
+    }
+
+    //---obtendo uma manga especifico---
+    public Cursor getMangas(long rowId) throws SQLException
+    {
+        Cursor mCursor =
+                db.query(true, MANGAS_TABLE, new String[] {MANGAS_KEY_ROWID, MANGAS_KEY_VOLUME,
+                                MANGAS_KEY_ID_MUAMBA}, MANGAS_KEY_ROWID + "=" + rowId, null,
+                        null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    //---alterando um manga---
+    public boolean updateMangs(long rowId, Integer volume, Long idMuamba)
+    {
+        ContentValues args = new ContentValues();
+        args.put(MANGAS_KEY_VOLUME, volume);
+        args.put(MANGAS_KEY_ID_MUAMBA, idMuamba);
+        return db.update(MANGAS_TABLE, args, MANGAS_KEY_ROWID + "=" + rowId, null) > 0;
+    }
+
+
+
+    //---inserindo action figure no banco de dados---
+    public long insertActionFigures(String marca, Integer quantidade, String defeitos, Long idMuamba)
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(ACTION_FIGURES_KEY_MARCA, marca);
+        initialValues.put(ACTION_FIGURES_KEY_QUANTIDADE, quantidade);
+        initialValues.put(ACTION_FIGURES_KEY_DEFEITOS, defeitos);
+        initialValues.put(ACTION_FIGURES_KEY_ID_MUAMBA, idMuamba);
+
+        return db.insert(ACTION_FIGURES_TABLE, null, initialValues);
+    }
+
+    //---deletando um action figure---
+    public boolean deleteActionFigures(long rowId)
+    {
+        return db.delete(ACTION_FIGURES_TABLE, ACTION_FIGURES_KEY_ROWID + "=" + rowId, null) > 0;
+    }
+
+    //---recuperando todas os Action Figures---
+    public Cursor getAllActionFigures()
+    {
+        return db.query(ACTION_FIGURES_TABLE, new String[] {ACTION_FIGURES_KEY_ROWID, ACTION_FIGURES_KEY_MARCA, ACTION_FIGURES_KEY_QUANTIDADE, ACTION_FIGURES_KEY_DEFEITOS,
+                ACTION_FIGURES_KEY_ID_MUAMBA}, null, null, null, null, null);
+    }
+
+    //---obtendo uma Action Figures especifica---
+    public Cursor getActionFigures(long rowId) throws SQLException
+    {
+        Cursor mCursor =
+                db.query(true, ACTION_FIGURES_TABLE, new String[] {ACTION_FIGURES_KEY_ROWID, ACTION_FIGURES_KEY_MARCA, ACTION_FIGURES_KEY_QUANTIDADE, ACTION_FIGURES_KEY_DEFEITOS,
+                                ACTION_FIGURES_KEY_ID_MUAMBA}, ACTION_FIGURES_KEY_ROWID + "=" + rowId, null,
+                        null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    //---alterando um Action Figure---
+    public boolean updateActionFigures(long rowId, String marca, Integer quantidade, String defeitos, Long idMuamba)
+    {
+        ContentValues args = new ContentValues();
+        args.put(ACTION_FIGURES_KEY_MARCA, marca);
+        args.put(ACTION_FIGURES_KEY_QUANTIDADE, quantidade);
+        args.put(ACTION_FIGURES_KEY_DEFEITOS, defeitos);
+        args.put(ACTION_FIGURES_KEY_ID_MUAMBA, idMuamba);
+        return db.update(ACTION_FIGURES_TABLE, args, ACTION_FIGURES_KEY_ROWID + "=" + rowId, null) > 0;
+    }
+
 }
