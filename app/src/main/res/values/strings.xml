@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MinhaMuamba</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btnNameGames">Games</string>
+    <string name="btnNameActionFigures">Action Figures</string>
+    <string name="btnNameMangas">Mangás</string>
+
+    <string name="JANELA_CRUD_GAMES">JANELA_CRUD_GAMES</string>
+    <string name="JANELA_CRUD_ACTION_FIGURES">JANELA_CRUD_ACTION_FIGURES</string>
+    <string name="JANELA_CRUD_MANGAS">JANELA_CRUD_MANGAS</string>
+
+    <string name="title_activity_main_games">MainGamesActivity</string>
+    <string name="title_activity_main_action_figures">MainActionFiguresActivity</string>
+    <string name="title_activity_main_mangas">MainMangasActivity</string>
+
+
+</resources>
