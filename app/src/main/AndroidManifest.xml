@@ -50,6 +50,16 @@
         </activity>
         <activity android:name=".rowGamesActivity" >
         </activity>
+        <activity
+            android:name=".IncluirGamesActivity"
+            android:label="@string/title_activity_incluir_games"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="JANELA_INCLUIR_GAMES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -37,7 +37,7 @@ public class DBAdapter {
     public static final String MANGAS_KEY_VOLUME = "volume";
     public static final String MANGAS_KEY_ID_MUAMBA = "id_muamba";
 
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 6;
 
     private static final String DATABASE_CREATE =
             "create table muamba (_identificador integer primary key autoincrement, nome text not null, valorpago real, valoratual real);"+
@@ -291,5 +291,11 @@ public class DBAdapter {
         args.put(ACTION_FIGURES_KEY_ID_MUAMBA, idMuamba);
         return db.update(ACTION_FIGURES_TABLE, args, ACTION_FIGURES_KEY_ROWID + "=" + rowId, null) > 0;
     }
+
+    public Cursor getAllGamesComplete()
+    {
+        return db.rawQuery(" SELECT * FROM muamba, games WHERE muamba._identificador = games.id_muamba order by games._id", null);
+    }
+
 
 }

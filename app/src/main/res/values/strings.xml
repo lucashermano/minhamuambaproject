@@ -10,9 +10,18 @@
     <string name="JANELA_CRUD_ACTION_FIGURES">JANELA_CRUD_ACTION_FIGURES</string>
     <string name="JANELA_CRUD_MANGAS">JANELA_CRUD_MANGAS</string>
 
+    <string name="JANELA_INCLUIR_GAMES">JANELA_INCLUIR_GAMES</string>
+
     <string name="title_activity_main_games">MainGamesActivity</string>
     <string name="title_activity_main_action_figures">MainActionFiguresActivity</string>
     <string name="title_activity_main_mangas">MainMangasActivity</string>
+
+    <string name="BOTAO_INCLUIR_GAMES">Incluir</string>
+    <string name="title_activity_incluir_games">IncluirGamesActivity</string>
+
+    <string name="TITULO_TELA_INCLUIR_GAMES">Incluir GAMES</string>
+
+    <string name="BOTAO_CONFIRMAR_INCLUIR_GAMES">Confirmar</string>
 
 
 </resources>

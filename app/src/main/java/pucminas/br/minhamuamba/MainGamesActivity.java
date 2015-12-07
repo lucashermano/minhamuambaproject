@@ -1,5 +1,6 @@
 package pucminas.br.minhamuamba;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -34,6 +36,16 @@ public class MainGamesActivity extends AppCompatActivity {
             }
         });
 
+        Button btnIncluirGames = (Button) findViewById(R.id.btnIncluirGames);
+        btnIncluirGames.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getResources().getString(R.string.JANELA_INCLUIR_GAMES));
+                startActivity(it);
+            }
+        });
+
+
 
         ListView lstGames = (ListView) findViewById(R.id.listGames);
 
@@ -43,10 +55,9 @@ public class MainGamesActivity extends AppCompatActivity {
         //long idMuamba = dbAdapter.insertMuamba("Tales of Zestiria", 200.0d, 180.0d);
         //dbAdapter.insertGames(1, idMuamba);
 
-        Cursor cursor = dbAdapter.getAllGames();
+        Cursor cursor = dbAdapter.getAllGamesComplete();
 
-        String[] from = new String[]{DBAdapter.GAMES_KEY_ROWID,
-                DBAdapter.GAMES_KEY_CONSOLE, DBAdapter.GAMES_KEY_ID_MUAMBA   };
+        String[] from = new String[]{DBAdapter.GAMES_KEY_ROWID, DBAdapter.GAMES_KEY_CONSOLE, DBAdapter.MUAMBA_KEY_NOME   };
 
         int[] to = new int[]{R.id.txtColuna01, R.id.txtColuna02, R.id.txtColuna03};
 

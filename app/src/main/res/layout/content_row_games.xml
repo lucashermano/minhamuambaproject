@@ -27,7 +27,7 @@
         <TextView android:id="@+id/txtColuna01"
             android:textColor="#4B89E0"
             android:layout_width="50dip"
-            android:layout_height="40dip"
+            android:layout_height="20dip"
             android:textSize = "15dip"
             />
 
@@ -41,7 +41,7 @@
         <TextView android:id="@+id/txtColuna03"
             android:textColor="#4B89E0"
             android:gravity = "center"
-            android:layout_width="50dip"
+            android:layout_width="150dip"
             android:layout_height="wrap_content"  />
 
     </LinearLayout>
