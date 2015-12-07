@@ -294,7 +294,14 @@ public class DBAdapter {
 
     public Cursor getAllGamesComplete()
     {
-        return db.rawQuery(" SELECT * FROM muamba, games WHERE muamba._identificador = games.id_muamba order by games._id", null);
+        return db.rawQuery(" SELECT muamba._identificador, muamba.nome, muamba.valoratual, muamba.valorpago, "+
+                           " games.console, games._id, games.id_muamba, "+
+                           " CASE WHEN games.console = 1 THEN 'PS3' "+
+                           " WHEN games.console = 2 THEN 'PS4' "+
+                           " WHEN games.console = 3 THEN 'WiiU' "+
+                           " WHEN games.console = 4 THEN '3DS' "+
+                " WHEN games.console = 0 THEN 'N/D' END as descricaoconsole "+
+                           " FROM muamba, games WHERE muamba._identificador = games.id_muamba order by games._id", null);
     }
 
 

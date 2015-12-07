@@ -45,7 +45,11 @@ public class MainGamesActivity extends AppCompatActivity {
             }
         });
 
+        atualizarListaGames();
 
+    }
+
+    private void atualizarListaGames() {
 
         ListView lstGames = (ListView) findViewById(R.id.listGames);
 
@@ -57,9 +61,9 @@ public class MainGamesActivity extends AppCompatActivity {
 
         Cursor cursor = dbAdapter.getAllGamesComplete();
 
-        String[] from = new String[]{DBAdapter.GAMES_KEY_ROWID, DBAdapter.GAMES_KEY_CONSOLE, DBAdapter.MUAMBA_KEY_NOME   };
+        String[] from = new String[]{"descricaoconsole", DBAdapter.MUAMBA_KEY_NOME, DBAdapter.MUAMBA_KEY_VALORPAGO, DBAdapter.MUAMBA_KEY_VALORATUAL  };
 
-        int[] to = new int[]{R.id.txtColuna01, R.id.txtColuna02, R.id.txtColuna03};
+        int[] to = new int[]{R.id.txtColuna01, R.id.txtColuna02, R.id.txtColuna03, R.id.txtColuna04};
 
         dataAdapter = new SimpleCursorAdapter(this, R.layout.activity_row_games, cursor, from, to, 0);
 
@@ -69,4 +73,9 @@ public class MainGamesActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        atualizarListaGames();
+    }
 }
