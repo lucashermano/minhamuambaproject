@@ -56,9 +56,6 @@ public class MainGamesActivity extends AppCompatActivity {
         dbAdapter = new DBAdapter(this);
         dbAdapter.open();
 
-        //long idMuamba = dbAdapter.insertMuamba("Tales of Zestiria", 200.0d, 180.0d);
-        //dbAdapter.insertGames(1, idMuamba);
-
         Cursor cursor = dbAdapter.getAllGamesComplete();
 
         String[] from = new String[]{"descricaoconsole", DBAdapter.MUAMBA_KEY_NOME, DBAdapter.MUAMBA_KEY_VALORPAGO, DBAdapter.MUAMBA_KEY_VALORATUAL  };

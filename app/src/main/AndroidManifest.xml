@@ -60,6 +60,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".RowActionFiguresActivity" >
+        </activity>
+        <activity
+            android:name=".IncluirActionFiguresActivity"
+            android:label="@string/title_activity_incluir_action_figures"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="JANELA_INCLUIR_ACTION_FIGURES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

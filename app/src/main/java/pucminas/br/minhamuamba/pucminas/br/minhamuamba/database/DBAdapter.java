@@ -304,5 +304,12 @@ public class DBAdapter {
                            " FROM muamba, games WHERE muamba._identificador = games.id_muamba order by games._id", null);
     }
 
+    public Cursor getAllActionFiguresComplete()
+    {
+        return db.rawQuery(" SELECT muamba._identificador, muamba.nome, muamba.valoratual, muamba.valorpago, "+
+                " actionfigures.marca, actionfigures._id, actionfigures.id_muamba, actionfigures.quantidade, actionfigures.defeitos "+
+                " FROM muamba, actionfigures WHERE muamba._identificador = actionfigures.id_muamba order by actionfigures._id", null);
+    }
+
 
 }
