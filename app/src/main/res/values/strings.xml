@@ -32,6 +32,7 @@
     <string name="BOTAO_CONFIRMAR_INCLUIR_ACTION_FIGURES">Confirmar</string>
     <string name="BOTAO_CONFIRMAR_INCLUIR_MANGAS">Confirmar</string>
     <string name="title_activity_incluir_action_figures">IncluirActionFiguresActivity</string>
+    <string name="title_activity_incluir_mangas">IncluirMangasActivity</string>
 
 
 </resources>

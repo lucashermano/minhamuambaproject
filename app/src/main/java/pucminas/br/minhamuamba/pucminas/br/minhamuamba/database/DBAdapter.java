@@ -311,5 +311,10 @@ public class DBAdapter {
                 " FROM muamba, actionfigures WHERE muamba._identificador = actionfigures.id_muamba order by actionfigures._id", null);
     }
 
-
+    public Cursor getAllMangasComplete()
+    {
+        return db.rawQuery(" SELECT muamba._identificador, muamba.nome, muamba.valoratual, muamba.valorpago, "+
+                " mangas.volume, mangas._id, mangas.id_muamba "+
+                " FROM muamba, mangas WHERE muamba._identificador = mangas.id_muamba order by mangas._id", null);
+    }
 }
